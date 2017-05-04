@@ -125,6 +125,7 @@ server.on('message', function (message, rinfo) {
   let fallback
   (function queryns (message, nameserver) {
     const sock = dgram.createSocket('udp4')
+    const startTime = process.hrtime()
     sock.send(message, 0, message.length, 53, nameserver, function () {
       fallback = setTimeout(function () {
         queryns(message, config.nameservers[0])
@@ -136,7 +137,19 @@ server.on('message', function (message, rinfo) {
     })
     sock.on('message', function (response) {
       clearTimeout(fallback)
-      logquery('type: primary, nameserver: %s, query: %s, type: %s, answer: %s, source: %s:%s, size: %d', nameserver, domain, util.records[type] || 'unknown', util.listAnswer(response), rinfo.address, rinfo.port, rinfo.size)
+      const hrTime = process.hrtime(startTime)
+      const processTime = (hrTime[0] * 1000 + hrTime[1] / 1000000) + 'ms'
+      logquery('type: primary, nameserver: %s, query: %s, type: %s, answer: %s, source: %s:%s, size: %d, time: %s',
+          nameserver,
+          domain,
+          util.records[type] || 'unknown',
+          util.listAnswer(response),
+          rinfo.address,
+          rinfo.port,
+          rinfo.size,
+          processTime
+      )
+      logdebug('dns response: %j', packet.parse(response))
       server.send(response, 0, response.length, rinfo.port, rinfo.address)
       sock.close()
     })

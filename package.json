@@ -1,5 +1,5 @@
 {
-  "name": "dns-proxy",
+  "name": "phu-dns-proxy",
   "version": "0.6.0",
   "description": "Simple DNS Proxy written in Node.JS. Override hosts, domains, or tlds. Redirect certain domains to different nameservers.",
   "bin": {

@@ -1,0 +1,19 @@
+{
+  "port": 8053,
+  "host": "127.0.0.1",
+  "logging": "dnsproxy:query,dnsproxy:info",
+  "nameservers": [
+    "192.168.1.1",
+    "8.8.8.8",
+    "8.8.4.4"
+  ],
+  "servers": {},
+  "domains": {
+    "dev": "127.0.0.1"
+  },
+  "hosts": {
+    "devlocal": "127.0.0.1"
+  },
+  "fallback_timeout": 350,
+  "reload_config": true
+}
