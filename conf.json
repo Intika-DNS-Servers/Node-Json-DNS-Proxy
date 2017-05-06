@@ -15,5 +15,7 @@
     "devlocal": "127.0.0.1"
   },
   "fallback_timeout": 350,
-  "reload_config": true
+  "reload_config": true,
+  "maxTtl": 172800,
+  "minTtl": 300
 }
