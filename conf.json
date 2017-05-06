@@ -17,5 +17,6 @@
   "fallback_timeout": 350,
   "reload_config": true,
   "maxTtl": 172800,
-  "minTtl": 300
+  "minTtl": 300,
+  "nxdomainTtl": 600
 }
