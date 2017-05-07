@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ekristen/dns-proxy.svg?branch=master)](https://travis-ci.org/ekristen/dns-proxy) [![npm](https://img.shields.io/npm/dt/dns-proxy.svg)](https://github.com/ekristen/dns-proxy) [![npm](https://img.shields.io/npm/l/dns-proxy.svg)](https://github.com/ekristen/dns-proxy) [![David](https://img.shields.io/david/ekristen/dns-proxy.svg)](https://github.com/ekristen/dns-proxy) [![David](https://img.shields.io/david/dev/ekristen/dns-proxy.svg)](https://github.com/ekristen/dns-proxy)
+[![npm](https://img.shields.io/npm/dt/dns-proxy2.svg)](https://github.com/marlic7/dns-proxy2) [![Github All Releases](https://img.shields.io/github/downloads/marlic7/dns-proxy2/total.svg)](https://github.com/marlic7/dns-proxy2) [![npm](https://img.shields.io/npm/l/dns-proxy2.svg)](https://github.com/marlic7/dns-proxy2)
 
 # DNS Proxy
 
