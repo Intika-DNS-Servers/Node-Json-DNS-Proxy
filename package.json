@@ -1,7 +1,7 @@
 {
-  "name": "phu-dns-proxy",
-  "version": "1.0.1",
-  "description": "Simple DNS Proxy written in Node.JS. Override hosts, domains, or tlds. Redirect certain domains to different nameservers.",
+  "name": "dns-proxy2",
+  "version": "1.0.2",
+  "description": "Simple DNS Proxy written in Node.JS. Override hosts, domains, or tlds. Cache DNS response. Redirect certain domains to different nameservers.",
   "bin": {
     "dns-proxy": "bin/dns-proxy"
   },
@@ -9,7 +9,7 @@
   "preferGlobal": true,
   "author": "Erik Kristensen <erik@erikkristensen.com>",
   "license": "MIT",
-  "repository": "ekristen/dns-proxy",
+  "repository": "marlic7/dns-proxy2",
   "scripts": {
     "start": "bin/dns-proxy --config conf.json",
     "start-debug": "DEBUG=dnsproxy:debug,dnsproxy:query,dnsproxy:info bin/dns-proxy --config conf.json",
