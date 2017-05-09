@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-TAG=$(./build-tools/get_version.js)
+TAG=$(./build-tools/get_version.sh)
 IMAGE_NAME="njs-dns-proxy"
 GIT_SHA=$(git rev-parse HEAD)
 BUILD_FROM="${USER}/$(hostname)"
