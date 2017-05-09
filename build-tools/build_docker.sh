@@ -8,6 +8,7 @@ BUILD_FROM="${USER}/$(hostname)"
 
 docker build --build-arg GIT_SHA=${GIT_SHA} \
              --build-arg BUILD_FROM=${BUILD_FROM} \
+             --build-arg TAG=${TAG} \
              -t $IMAGE_NAME:$TAG .
 
 echo "###"
