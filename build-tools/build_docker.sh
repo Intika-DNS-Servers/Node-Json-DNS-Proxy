@@ -2,7 +2,7 @@
 set -e
 
 TAG=$(./build-tools/get_version.sh)
-IMAGE_NAME="njs-dns-proxy"
+IMAGE_NAME="rpi-njs-dns-proxy"
 GIT_SHA=$(git rev-parse HEAD)
 BUILD_FROM="${USER}/$(hostname)"
 
