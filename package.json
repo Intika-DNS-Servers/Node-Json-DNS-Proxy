@@ -1,6 +1,6 @@
 {
   "name": "dns-proxy2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple DNS Proxy written in Node.JS. Override hosts, domains, or tlds. Cache DNS response. Redirect certain domains to different nameservers.",
   "bin": {
     "dns-proxy": "bin/dns-proxy"
@@ -13,6 +13,7 @@
   "scripts": {
     "start": "bin/dns-proxy --config conf.json",
     "start-debug": "DEBUG=dnsproxy:debug,dnsproxy:query,dnsproxy:info bin/dns-proxy --config conf.json",
+    "build-docker-rpi": "./build-tools/build_docker.sh",
     "test": "npm run test:standard",
     "test:standard": "standard lib/*.js"
   },

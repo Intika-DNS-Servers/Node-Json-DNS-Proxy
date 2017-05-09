@@ -4,7 +4,8 @@
 
 Simple DNS Proxy written in Node.JS
 
-Designed to allow you to override hosts or domains with specific answers or override tlds, or domains to use different nameservers. Useful when using VPN connections with split DNS setups.
+Designed to allow you to override hosts or domains with specific answers or override tlds, or domains to use different nameservers. It has simple cache for speed up DNS responses.
+Useful for local/home usage or when using VPN connections with split DNS setups.
 
 This app makes use of the [rc](https://www.npmjs.com/package/rc) module for configuration, the default configuration is below, use any file location to override the defaults. Appname is `dnsproxy` when creating a configuration file.
 
@@ -13,6 +14,13 @@ I can guarentee this app isn't perfect but fulfills my current needs for routing
 ## Install
 
 `npm install -g dns-proxy`
+
+## Install on Raspberry Pi (with installed docker-engine and docker-compose)
+```bash
+vim docker-compose.yml
+vim conf.json
+docker-compose up -d
+```
 
 ## Examples
 
@@ -30,7 +38,7 @@ This will send all .com queries to 8.8.8.8
 
 ### Domain Specific Nameserver
 
-This will match all google.com and its subdomains. 
+This will match all google.com and its subdomains.
 ```json
 "servers": {
   "google.com": "8.8.8.8"
@@ -52,22 +60,28 @@ This will match all of google.com and its subdomains and return 127.0.0.1 as the
 
 ## Default Configuration
 This is the default configuration in the application, you should override this by creating the proper rc file in one of the searchable paths.
-```js
+```json
 {
-  port: 53,
-  host: '127.0.0.1',
-  logging: 'dns-proxy:query',
-  nameservers: [
-    '8.8.8.8',
-    '8.8.4.4'
+  "port": 8053,
+  "host": "127.0.0.1",
+  "logging": "dnsproxy:query,dnsproxy:info",
+  "nameservers": [
+    "8.8.8.8",
+    "8.8.4.4",
+    "8.8.8.8"
   ],
-  servers: {},
-  domains: {
-    'dev': '127.0.0.1'
+  "servers": {},
+  "domains": {
+    "dev": "127.0.0.1"
   },
-  hosts: {
-    'devlocal': '127.0.0.1'
-  }
+  "hosts": {
+    "devlocal": "127.0.0.1"
+  },
+  "fallback_timeout": 150,
+  "reload_config": true,
+  "maxTtl": 172800,
+  "minTtl": 300,
+  "nxdomainTtl": 600
 }
 ```
 
@@ -76,7 +90,7 @@ This is the default configuration in the application, you should override this b
 Logging is handled by the simple lightweight [debug](https://www.npmjs.com/package/debug) package. By default all queries are logged. To change the logging output update the `logging` variable to any of the following: dns-proxy:error, dns-proxy:query, dns-proxy:debug. You can specify all or none, separate using a comma, a wildcard can be used as well.
 
 
-## Running as a Service 
+## Running as a Service
 
 ### OSX
 

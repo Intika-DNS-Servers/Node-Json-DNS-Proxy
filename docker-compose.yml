@@ -1,0 +1,11 @@
+# sample docker-compose deployment file
+version: "2"
+services:
+  njs-dns-proxy:
+    image: "marlic/njs-dns-proxy:0.6.0-1"
+    container_name: njs_dns_proxy
+    ports:
+      - 53:8053
+    volumes:
+      - ./conf.json:/home/node/conf.json
+    restart: always
