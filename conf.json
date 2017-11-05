@@ -14,6 +14,10 @@
   "hosts": {
     "devlocal": "127.0.0.1"
   },
+  "hosts_sufixes": [
+    "lan",
+    "loc"
+  ],
   "fallback_timeout": 350,
   "reload_config": true,
   "maxTtl": 172800,

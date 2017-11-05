@@ -1,6 +1,6 @@
 FROM marlic/rpi-node6:6.10.0-1
 
-RUN npm install -g dns-proxy2@1.0.4 && npm cache clean
+RUN npm install -g dns-proxy2@1.0.5 && npm cache clean
 
 USER node
 WORKDIR /home/node

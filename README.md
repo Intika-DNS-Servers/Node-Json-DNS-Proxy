@@ -55,6 +55,18 @@ This will match all of google.com and its subdomains and return 127.0.0.1 as the
 }
 ```
 
+### Host Specific Answers with hosts sufix-es 
+Queries: devlocal, devlocal.lan and devlocal.loc will match 127.0.0.1
+```json
+"hosts": {
+  "devlocal": "127.0.0.1"
+},
+"hosts_sufixes": [
+  "lan",
+  "loc"
+],
+```
+
 ### Aliases
 
 **Domains** and **Hosts** support aliases now, whereby you can define a host like normal such as `"hi": "127.0.0.1"` and in another entry reference it like `"hello": "hi"`.
@@ -78,6 +90,10 @@ This is the default configuration in the application, you should override this b
   "hosts": {
     "devlocal": "127.0.0.1"
   },
+  "hosts_sufixes": [
+    "lan",
+    "loc"
+  ],
   "fallback_timeout": 150,
   "reload_config": true,
   "maxTtl": 172800,
