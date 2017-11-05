@@ -3,3 +3,5 @@
 node_modules
 npm-debug.log
 release
+.idea
+package-lock.json

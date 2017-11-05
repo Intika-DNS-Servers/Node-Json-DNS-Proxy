@@ -1,9 +1,9 @@
 {
   "name": "dns-proxy2",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple DNS Proxy written in Node.JS. Override hosts, domains, or tlds. Cache DNS response. Redirect certain domains to different nameservers.",
   "bin": {
-    "dns-proxy": "dns-proxy.js"
+    "dns-proxy": "lib/dns-proxy.js"
   },
   "main": "lib/dns-proxy.js",
   "preferGlobal": true,
@@ -11,9 +11,10 @@
   "license": "MIT",
   "repository": "marlic7/dns-proxy2",
   "scripts": {
-    "start": "dns-proxy.js --config conf.json",
+    "start": "lib/dns-proxy.js --config conf.json",
     "start-debug": "DEBUG=dnsproxy:debug,dnsproxy:query,dnsproxy:info dns-proxy.js --config conf.json",
-    "build-docker-rpi": "./build-tools/build_docker.sh",
+    "build-docker-rpi": "docker build -f Dockerfile.rpi -t marlic/rpi-njs-dns-proxy",
+    "build-docker-x86_64": "docker build -f Dockerfile.x86_64 -t marlic/njs-dns-proxy",
     "test": "npm run test:standard",
     "test:standard": "standard *.js",
     "pkg": "pkg --out-dir release --targets node7-macos-x64,node7-alpine-x64,node7-linux-x64,node7-win dns-proxy.js"
