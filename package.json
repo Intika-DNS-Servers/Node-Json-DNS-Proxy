@@ -13,8 +13,7 @@
   "scripts": {
     "start": "lib/dns-proxy.js --config conf.json",
     "start-debug": "DEBUG=dnsproxy:debug,dnsproxy:query,dnsproxy:info dns-proxy.js --config conf.json",
-    "build-docker-rpi": "docker build -f Dockerfile.rpi -t marlic/rpi-njs-dns-proxy",
-    "build-docker-x86_64": "docker build -f Dockerfile.x86_64 -t marlic/njs-dns-proxy",
+    "build-docker-rpi": "docker build -f Dockerfile.rpi -t marlic/rpi-njs-dns-proxy .",
     "test": "npm run test:standard",
     "test:standard": "standard *.js",
     "pkg": "pkg --out-dir release --targets node7-macos-x64,node7-alpine-x64,node7-linux-x64,node7-win dns-proxy.js"
